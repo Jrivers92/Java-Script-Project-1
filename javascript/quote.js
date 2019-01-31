@@ -66,7 +66,7 @@ function getRandomQuote() {
  let randomNumber = Math.floor(Math.random() * quotes.length );
   return randomNumber;
 }
-
+ console.log(getRandomQuote());
 
 /***
   Create the `printQuote` function to:
