@@ -15,11 +15,11 @@ FSJS project 1 - A Random Quote Generator
     - Add at least one `year` and/or `citation` property to at least one
       quote object.
 ***/
-let html = '';
-let red;
-let green;
-let blue;
-let rgbColor;
+var html = '';
+var red;
+var green;
+var blue;
+var rgbColor;
 
 const quotes = [
   {
@@ -89,7 +89,7 @@ let listHtml = '<p class="quote">' + quotes.quote;
 
 listHtml += document.querySelector('quote').innerHTML = listHtml;
 listHtml += '</p>';
-console.log(printQuote());
+console.log(quotes.quote);
 }
 
 function randomColor() {
