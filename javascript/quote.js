@@ -25,31 +25,31 @@ let quotes = [
   {
     quote : "If a man hasn’t discovered something that he will die for, he isn’t fit to live.",
     source : "Martin Luther King, Jr.",
-    citation : "Twitter",
-    year : 1963
+    citation : "History",
+    year : "1963"
   },
   {
     quote : "Who dares, wins. Who sweats, wins. Who plans, wins.",
-    author : "British Special Air Service (SAS)",
+    source : "British Special Air Service (SAS)",
     citation : "Twitter",
     year : " "
   },
   {
     quote : "It is fatal to enter a war without the will to win it.",
-    author : "General Douglas MacArthur",
-    citation : "Twitter",
+    source : "General Douglas MacArthur",
+    citation : "Military",
     year : " "
   },
   {
     quote : "Fortune favors the brave.",
-    author : "Terence",
-    citation : "Twitter",
+    source : "Terence",
+    citation : "",
     year : " "
   },
   {
     quote : "Only our individual faith in freedom can keep us free.",
-    author : "Dwight D. Eisenhower",
-    citation : "Twitter",
+    source : "Dwight D. Eisenhower",
+    citation : "Wiki",
     year : " "
   }
 ]
@@ -81,26 +81,35 @@ function getRandomQuote() {
 
 function printQuote() {
 let randomNumber = getRandomQuote();
-let listHtml = quotes[randomNumber].quote;
+  if ( quotes[randomNumber].quote === " " || null ) {
+   quotes[randomNumber].quote = '  Quote is Unknown';
+  }
+  if ( quotes[randomNumber].source === " " || null ) {
+     quotes[randomNumber].source = '  Source is Unknown';
+  }
+  if (  quotes[randomNumber].citation === " " || null ) {
+      quotes[randomNumber].citation = '  Citation is Unknown';
+  }
   if ( quotes[randomNumber].year === " " || null ) {
-    quotes[randomNumber].year = 'Unknown';
-  } else if ( quotes[randomNumber].citation === " ") {
-      quotes[randomNumber].citation = 'Unknown';
-  };
+     quotes[randomNumber].year = '  Year is Unknown';
+  }
 
-document.querySelector('quote').innerHTML = listHtml;
-console.log(listHtml);
+document.getElementById('quote').innerHTML = quotes[randomNumber].quote;
+document.getElementById('source').innerHTML = quotes[randomNumber].source;
+document.getElementById('citation').innerHTML = quotes[randomNumber].citation;
+document.getElementById('year').innerHTML = quotes[randomNumber].year;
+
 }
 
 
-function randomColor() {
-  red = Math.floor(Math.random() * 256 );
-  green = Math.floor(Math.random() * 256 );
-  blue = Math.floor(Math.random() * 256 );
-  rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
-  html += '<div container="background-color: ' + rgbColor + '"></div>';
-  return rgbColor;
-}
+// function randomColor() {
+//   red = Math.floor(Math.random() * 256 );
+//   green = Math.floor(Math.random() * 256 );
+//   blue = Math.floor(Math.random() * 256 );
+//   rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+//   html += '<div container="background-color: ' + rgbColor + '"></div>';
+//   return rgbColor;
+// }
 
 /***
   When the "Show another quote" button is clicked, the event listener
@@ -108,8 +117,8 @@ function randomColor() {
   function. So do not make any changes to the line of code below this
   comment.
 ***/
-
+// document.getElementById('loadQuote').addEventListener("click", rgbColor, false);
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-printQuote();
+
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
