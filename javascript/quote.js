@@ -21,7 +21,7 @@ var green;
 var blue;
 var rgbColor;
 
-const quotes = [
+let quotes = [
   {
     quote : "If a man hasn’t discovered something that he will die for, he isn’t fit to live.",
     source : "Martin Luther King, Jr.",
@@ -29,27 +29,27 @@ const quotes = [
     year : 1963
   },
   {
-    text : "Who dares, wins. Who sweats, wins. Who plans, wins.",
+    quote : "Who dares, wins. Who sweats, wins. Who plans, wins.",
     author : "British Special Air Service (SAS)",
     citation : "Twitter",
     year : " "
   },
   {
-    text : "It is fatal to enter a war without the will to win it.",
+    quote : "It is fatal to enter a war without the will to win it.",
     author : "General Douglas MacArthur",
     citation : "Twitter",
     year : " "
   },
   {
-    text : "Fortune favors the brave.",
+    quote : "Fortune favors the brave.",
     author : "Terence",
-    citaiton : "Twitter",
+    citation : "Twitter",
     year : " "
   },
   {
-    text : "Only our individual faith in freedom can keep us free.",
+    quote : "Only our individual faith in freedom can keep us free.",
     author : "Dwight D. Eisenhower",
-    citaiton : "Twitter",
+    citation : "Twitter",
     year : " "
   }
 ]
@@ -66,7 +66,8 @@ function getRandomQuote() {
  let randomNumber = Math.floor(Math.random() * quotes.length );
   return randomNumber;
 }
- console.log(getRandomQuote());
+
+
 
 /***
   Create the `printQuote` function to:
@@ -79,18 +80,18 @@ function getRandomQuote() {
 ***/
 
 function printQuote() {
-let randomQuote = getRandomQuote();
-let listHtml = '<p class="quote">' + quotes.quote;
-  if ( quotes.year === " " || null ) {
-    quotes.year = 'Unknown';
-  } else if ( quotes.citation === " ") {
-      quotes.citation = 'Unknown';
+let randomNumber = getRandomQuote();
+let listHtml = quotes[randomNumber].quote;
+  if ( quotes[randomNumber].year === " " || null ) {
+    quotes[randomNumber].year = 'Unknown';
+  } else if ( quotes[randomNumber].citation === " ") {
+      quotes[randomNumber].citation = 'Unknown';
   };
 
-listHtml += document.querySelector('quote').innerHTML = listHtml;
-listHtml += '</p>';
-console.log(quotes.quote);
+document.querySelector('quote').innerHTML = listHtml;
+console.log(listHtml);
 }
+
 
 function randomColor() {
   red = Math.floor(Math.random() * 256 );
@@ -100,6 +101,7 @@ function randomColor() {
   html += '<div container="background-color: ' + rgbColor + '"></div>';
   return rgbColor;
 }
+
 /***
   When the "Show another quote" button is clicked, the event listener
   below will be triggered, and it will call, or "invoke", the `printQuote`
@@ -109,5 +111,5 @@ function randomColor() {
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-
+printQuote();
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
