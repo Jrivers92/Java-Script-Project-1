@@ -31,22 +31,26 @@ const quotes = [
   {
     text : "Who dares, wins. Who sweats, wins. Who plans, wins.",
     author : "British Special Air Service (SAS)",
-    citation : "Twitter"
+    citation : "Twitter",
+    year : " "
   },
   {
     text : "It is fatal to enter a war without the will to win it.",
     author : "General Douglas MacArthur",
-    citation : "Twitter"
+    citation : "Twitter",
+    year : " "
   },
   {
     text : "Fortune favors the brave.",
     author : "Terence",
-    citaiton : "Twitter"
+    citaiton : "Twitter",
+    year : " "
   },
   {
     text : "Only our individual faith in freedom can keep us free.",
     author : "Dwight D. Eisenhower",
-    citaiton : "Twitter"
+    citaiton : "Twitter",
+    year : " "
   }
 ]
 
@@ -58,7 +62,7 @@ const quotes = [
      `quotes` array.
 ***/
 
-function getRandomQuote(array) {
+function getRandomQuote() {
  let randomNumber = Math.floor(Math.random() * quotes.length );
   return randomNumber;
 }
@@ -76,14 +80,14 @@ function getRandomQuote(array) {
 
 function printQuote() {
 let randomQuote = getRandomQuote();
-let listHtml = '<p class="quote">' + quotes.value
-  if (randomQuote === quotes.citation ) {
+let listHtml = '<p class="quote">' + quotes.quote;
+  if ( quotes.year === " " || null ) {
+    quotes.year = 'Unknown';
+  } else if ( quotes.citation === " ") {
+      quotes.citation = 'Unknown';
+  };
 
-  } else if ( randomQuote === quotes.year) {
-
-  }
-
-listHtml += document.querySelector('quote').innerHTML= quotes[randomQuote];
+listHtml += document.querySelector('quote').innerHTML = listHtml;
 listHtml += '</p>';
 console.log(printQuote());
 }
