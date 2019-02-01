@@ -2,20 +2,7 @@
 Treehouse Techdegree:
 FSJS project 1 - A Random Quote Generator
 ******************************************/
-
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
-
-/***
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-
-  Recommended:
-    - Add at least one `year` and/or `citation` property to at least one
-      quote object.
-***/
-var html = '';
+//VARIABLES LOCATION
 var red;
 var green;
 var blue;
@@ -24,9 +11,27 @@ var rgbColor;
 let quotes = [
   {
     quote : "If a man hasn’t discovered something that he will die for, he isn’t fit to live.",
-    source : "Martin Luther King, Jr.",
+    source : "Martin Luther King, Jr",
     citation : "History",
     year : "1963"
+  },
+  {
+    quote : "Imagination is more important than knowledge.",
+    source : "Albert Einstein",
+    citation : "German Theoretical Physicist",
+    year : "1879-1955"
+  },
+  {
+    quote : "All our dreams can come true, if we have the courage to pursue them.",
+    source : "Walt Disney",
+    citation : "American Filmaker",
+    year : "1901-1966"
+  },
+  {
+    quote : "It does not matter how slowly you go as long as you do not stop.",
+    source : "Confucius",
+    citation : "Chinese philosopher, politician and statesman ",
+    year : "551 BC I-479 BC"
   },
   {
     quote : "Who dares, wins. Who sweats, wins. Who plans, wins.",
@@ -43,7 +48,7 @@ let quotes = [
   {
     quote : "Fortune favors the brave.",
     source : "Terence",
-    citation : "",
+    citation : " ",
     year : " "
   },
   {
@@ -55,13 +60,8 @@ let quotes = [
 ]
 
 
-/***
-  Create the `getRandomQuote` function to:
-   - generate a random number
-   - use the random number to `return` a random quote object from the
-     `quotes` array.
-***/
 
+// Random Quote Generator Function
 function getRandomQuote() {
  let randomNumber = Math.floor(Math.random() * quotes.length );
   return randomNumber;
@@ -69,18 +69,11 @@ function getRandomQuote() {
 
 
 
-/***
-  Create the `printQuote` function to:
-   - call the `getRandomQuote` function and assign it to a variable.
-   - use the properties of the quote object stored in the variable to
-     create your HTML string.
-   - use conditionals to make sure the optional properties exist before
-     they are added to the HTML string.
-   - set the `innerHTML` of the `quote-box` div to the HTML string.
-***/
+
 
 function printQuote() {
 let randomNumber = getRandomQuote();
+//IF STATEMENTS FOR WHEN NO QUOTE OR SOURCE OR CITATION OR YEAR IS FOUND
   if ( quotes[randomNumber].quote === " " || null ) {
    quotes[randomNumber].quote = '  Quote is Unknown';
   }
@@ -93,32 +86,32 @@ let randomNumber = getRandomQuote();
   if ( quotes[randomNumber].year === " " || null ) {
      quotes[randomNumber].year = '  Year is Unknown';
   }
-
+//TARGETING THE IDS TO ADD THE QUOTE GENERATOR AND ALL THE OBJECTS I LISTED
+//AND DISPLAY IT ON THE SCREEN
 document.getElementById('quote').innerHTML = quotes[randomNumber].quote;
 document.getElementById('source').innerHTML = quotes[randomNumber].source;
 document.getElementById('citation').innerHTML = quotes[randomNumber].citation;
 document.getElementById('year').innerHTML = quotes[randomNumber].year;
+//SET A TIMER TO 6,5 SECONDS TO AUTOMATIOCALLY SWITCH TO NEXT QUOTE
+  setInterval(printQuote, 6500);
+}
 
+// Random Color Function
+function randomColor() {
+  red = Math.floor(Math.random() * 256 );
+  green = Math.floor(Math.random() * 256 );
+  blue = Math.floor(Math.random() * 256 );
+  let rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+//ADDING THE RANDOM COLOR TO THE BODY BACKGROUND
+  document.body.style.background = rgbColor;
+//SETTING INTERVAL TO MATCH THE QUOTE INTERVAL BUT WITH THE RANDOM COLOR Generator
+//SO BOTH COLOR AND QUOTE CHANGES TOGETHER
+  setInterval(randomColor, 6500);
 }
 
 
-// function randomColor() {
-//   red = Math.floor(Math.random() * 256 );
-//   green = Math.floor(Math.random() * 256 );
-//   blue = Math.floor(Math.random() * 256 );
-//   rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
-//   html += '<div container="background-color: ' + rgbColor + '"></div>';
-//   return rgbColor;
-// }
 
-/***
-  When the "Show another quote" button is clicked, the event listener
-  below will be triggered, and it will call, or "invoke", the `printQuote`
-  function. So do not make any changes to the line of code below this
-  comment.
-***/
-// document.getElementById('loadQuote').addEventListener("click", rgbColor, false);
+
+//WHEN YOU CLICK THE BUTTON BOTH A QUOTE AND A BACKGROUND COLOR WILL CHANGE
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+document.getElementById('container').addEventListener("click", randomColor, false);

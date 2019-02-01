@@ -23,7 +23,6 @@ body {
   font-weight: 400;
   line-height: 1.1;
   position: relative;
-  margin: 0;
 }
 
 .quote:before, .quote:after {
@@ -51,10 +50,27 @@ body {
   line-height: 1.1;
   text-align: right;
   margin-right: 4em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#citation {
+  float: right;
+  margin-right: 5%;
+  font-size: 1.25rem;;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-align: right;
+  margin-right: 4em;
+  margin-bottom: 5px;
 }
 
 .source:before {
   content: "—";
+}
+
+.source:after {
+  content: ",";
 }
 
 .citation {
@@ -62,12 +78,28 @@ body {
 }
 
 .citation:before {
+
+  font-style: normal;
+}
+
+.citation:after {
   content: ", ";
   font-style: normal;
 }
 
+.year {
+  width: 100%;
+  float: right;
+  margin-right: 5%;
+  font-size: 1.25rem;;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-align: right;
+  margin-right: 4em;
+
+}
+
 .year:before {
-  content: ", ";
   font-style: normal;
 }
 
