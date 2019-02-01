@@ -88,9 +88,10 @@ document.getElementById('quote').innerHTML = quotes[randomNumber].quote;
 document.getElementById('source').innerHTML = quotes[randomNumber].source;
 document.getElementById('citation').innerHTML = quotes[randomNumber].citation;
 document.getElementById('year').innerHTML = quotes[randomNumber].year;
+
+}
 //SET A TIMER TO 6,5 SECONDS TO AUTOMATIOCALLY SWITCH TO NEXT QUOTE
   setInterval(printQuote, 6500);
-}
 
 // Random Color Function
 function randomColor() {
@@ -100,11 +101,12 @@ function randomColor() {
   let rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
 //ADDING THE RANDOM COLOR TO THE BODY BACKGROUND
   document.body.style.background = rgbColor;
+
+}
+
 //SETTING INTERVAL TO MATCH THE QUOTE INTERVAL BUT WITH THE RANDOM COLOR Generator
 //SO BOTH COLOR AND QUOTE CHANGES TOGETHER
   setInterval(randomColor, 6500);
-}
-
 //WHEN YOU CLICK THE BUTTON BOTH A QUOTE AND A BACKGROUND COLOR WILL CHANGE
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 document.getElementById('container').addEventListener("click", randomColor, false);
