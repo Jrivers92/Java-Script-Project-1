@@ -67,10 +67,6 @@ function getRandomQuote() {
   return randomNumber;
 }
 
-
-
-
-
 function printQuote() {
 let randomNumber = getRandomQuote();
 //IF STATEMENTS FOR WHEN NO QUOTE OR SOURCE OR CITATION OR YEAR IS FOUND
@@ -108,9 +104,6 @@ function randomColor() {
 //SO BOTH COLOR AND QUOTE CHANGES TOGETHER
   setInterval(randomColor, 6500);
 }
-
-
-
 
 //WHEN YOU CLICK THE BUTTON BOTH A QUOTE AND A BACKGROUND COLOR WILL CHANGE
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
